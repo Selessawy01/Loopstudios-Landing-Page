@@ -1,0 +1,322 @@
+
+@use "variables";
+
+*, *::after, *::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html, body {
+    overflow-x: hidden;
+}
+img {   
+    display: block;
+    max-width: 100%;  
+}
+
+body {
+    margin:0;
+}
+
+.hero {
+    background-image: url('../images/mobile/image-hero.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 650px; /* temporary test */
+}
+
+.hero__border { padding : 40px 24px; }
+
+.hero__main {
+    display:flex;
+    justify-content: space-between;
+    height:clamp(24px,5vw,32px);
+    /*height:16px;*/
+}
+
+
+/*.hero__mob-nav*/
+nav {
+    max-width: 48rem;
+    background-color: black;
+    height:100vh;
+    width:100%;
+    margin-inline: auto;
+   /* padding-top:clamp(40px,8.5vw,64px);*/
+    padding-top:clamp(variables.$spacing-500,8.5vw,variables.$spacing-800);
+    padding-left: clamp(24px,10.5vw,80px);
+    padding-right: clamp(24px,10.5vw,80px);
+    position: fixed;
+    top:0;
+    right:0;
+    display:flex;
+    flex-direction: column;
+    transition: right 0.3s ease-in-out;
+    z-index:100;
+}
+.hero__menu-button,close-menu{
+    background: none;
+    border:none;
+    padding: 0;
+    cursor: pointer;
+}
+.mob-nav-header{
+    display:flex;
+    justify-content: space-between;
+    height:1.5rem;
+    margin-bottom: 160px;
+}
+
+.logo-img,
+.close-img {
+    height:clamp(1.125rem,5vw,1.5rem);
+}
+/*nav {
+    display: flex;
+    flex-direction: column;
+    gap:variables.$spacing-300;
+    color:variables.$white;
+    font-family: variables.$font-family-Josefin;
+    font-size: 1.5rem;
+    font-weight: variables.$fw-300;
+    text-transform: uppercase;
+    width:100%;
+}*/
+
+.nav__link-name {
+    color:white;
+    text-decoration: none;
+}
+
+/*----- Hero Title -----*/
+.hero__title-borders{
+    margin-top: 163px;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+   
+    padding:clamp(16px,4.28vw,40px) clamp(24px,6vw,40px);
+    /*padding:clamp(variables.$spacing-200,4.28,variables.$spacing-500)  clamp(variables.$spacing-300,6vw,variables.$spacing-500);*/
+    border: 1px solid variables.$white;
+}
+
+.hero__title{
+    text-transform: uppercase;
+    color: variables.$white;
+    font-family: variables.$font-family-Josefin ;
+    font-size:clamp(40px,9.5vw,70px);
+    line-height: 100%;
+    letter-spacing: 0;
+    font-weight: variables.$fw-300;
+}
+
+.hidden {
+    display:none;
+}
+/*======= Tablet View =======*/
+@media (min-width:768px){
+ 
+.hero__border{ 
+    padding-top :64px;
+    padding-left:80px ;
+    padding-right: 80px;
+    
+}
+.hero__title-borders { margin-top: 126px;}
+
+}
+
+/*======= Desktop View =======*/
+@media (min-width:1024px){
+
+.hero__border{ 
+    
+    padding-left:165px ;
+    padding-right: 165px;
+    
+}
+.hero__title-borders { width:49.6%;} 
+
+}
+
+
+
+
+.footer {
+  background-color: v.$black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  gap: v.$spacing-500;
+  padding-block: v.$spacing-600;
+
+  &__logo {
+    height: 24px; // adjust as needed
+    margin-bottom: v.$spacing-400;
+  }
+
+  &__nav {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    &-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: v.$spacing-300;
+      padding: 0;
+      margin: 0;
+
+      @media(min-width: 48rem) {
+        flex-direction: row;
+        gap: v.$spacing-400;
+      }
+    }
+  }
+
+  &__social-links {
+    display: flex;
+    gap: v.$spacing-200;
+    margin-top: v.$spacing-400;
+  }
+
+  &__copyright {
+    color: v.$white;
+    font-size: 0.875rem; // 14px
+    line-height: 165%;
+    font-weight: v.$fw-regular;
+    text-align: center;
+    margin-top: v.$spacing-300;
+  }
+}
+
+
+
+
+&__nav-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center; // center mobile
+  gap: v.$spacing-300;
+  padding: 0;
+  margin: 0;
+
+  @media (min-width: 48rem) {
+    flex-direction: row;
+    justify-content: center; // center desktop
+    gap: v.$spacing-400;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.footer {
+  background-color: v.$black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  gap: v.$spacing-500;
+  padding-block: v.$spacing-600;
+
+  &__logo {
+    height: 24px; // adjust as needed
+    margin-bottom: v.$spacing-400;
+  }
+
+  &__nav {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    &-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: v.$spacing-300;
+      padding: 0;
+      margin: 0;
+
+      @media(min-width: 48rem) {
+        flex-direction: row;
+        justify-content: center;
+        gap: v.$spacing-400;
+      }
+    }
+  }
+
+  &__social-links {
+    display: flex;
+    gap: v.$spacing-200;
+    margin-top: v.$spacing-400;
+  }
+
+  &__copyright {
+    color: v.$white;
+    font-size: 0.875rem; // 14px
+    line-height: 165%;
+    font-weight: v.$fw-regular;
+    text-align: center;
+    margin-top: v.$spacing-300;
+  }
+}
+
+.hidden {
+    display:none;
+}
+
+@media (min-width: 48rem) { // tablet breakpoint
+  footer {
+    display: grid;
+    grid-template-columns: 1fr 1fr; // two columns
+    grid-template-rows: auto auto; // two rows
+    width: 80%;
+    margin-inline: auto;
+    gap: v.$spacing-400;
+
+    &__logo {
+      grid-column: 1 / 2; // first column
+      justify-self: start; // left
+    }
+
+    &__social-links {
+      grid-column: 2 / 3; // second column
+      justify-self: end; // right
+    }
+
+    &__nav {
+      grid-column: 1 / 2;
+      justify-self: start;
+    }
+
+    &__copyright {
+      grid-column: 2 / 3;
+      justify-self: end;
+    }
+  }
+}
+/scss
+ _variables.scss
+ /componenets
+  _nav.scss
+ /layout
+  _footer.scss
+  style.scss
